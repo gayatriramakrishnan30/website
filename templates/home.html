@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon %}
+{% from "_cards.html" import project_card %}
+{% block body_class %}page-home{% endblock %}
+
+{% block head %}
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": site.name,
+  "url": site.url,
+  "image": site.url.rstrip('/') ~ "/static/img/photo.jpg",
+  "jobTitle": site.current_roles[0].role,
+  "worksFor": {"@type": "Organization", "name": site.current_roles[0].org},
+  "address": {"@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE"},
+  "alumniOf": [{"@type": "CollegeOrUniversity", "name": "HTW Berlin"}, {"@type": "CollegeOrUniversity", "name": "St. Xavier's College, Mumbai"}],
+  "knowsAbout": site.focus + site.domains,
+  "sameAs": [site.contact.linkedin, site.contact.github]
+} | tojson }}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow hero-eyebrow">{{ icon('pin') }} {{ site.location }}</p>
+      <h1 id="hero-title" class="hero-title">
+        <span class="hero-name">{{ site.name }}</span>
+        <span class="hero-headline">{{ site.headline }}</span>
+      </h1>
+      <p class="hero-intro">{{ site.intro }}</p>
+      <ul class="now-list" aria-label="Current roles">
+        {% for r in site.current_roles %}
+        <li><span class="now-dot" aria-hidden="true"></span><span class="now-role">{{ r.role }}</span> <span class="now-at">at</span> <span class="now-org">{{ r.org }}</span></li>
+        {% endfor %}
+      </ul>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#work">View my work {{ icon('arrow') }}</a>
+        <a class="btn btn-ghost" href="{{ site.contact.linkedin }}" target="_blank" rel="noopener">{{ icon('linkedin') }} LinkedIn</a>
+        <a class="btn btn-ghost" href="mailto:{{ site.contact.email }}">{{ icon('mail') }} Email</a>
+        {% if site.cv %}<a class="btn btn-ghost" href="{{ site.cv }}" download>{{ icon('download') }} CV</a>{% endif %}
+      </div>
+    </div>
+    <figure class="hero-portrait">
+      <picture>
+        <source srcset="/static/img/photo.webp" type="image/webp">
+        {{ img('/static/img/photo.jpg', 'Portrait of ' ~ site.name, cls='portrait', loading='eager') }}
+      </picture>
+      <figcaption class="portrait-tag" aria-hidden="true">
+        <span>Biotech</span><span>→</span><span>Business</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="container">
+    <ul class="stats" aria-label="Highlights">
+      {% for s in site.stats %}
+      <li class="stat reveal">
+        <span class="stat-value">{{ s.value }}</span>
+        <span class="stat-label">{{ s.label }}</span>
+        <span class="stat-source">{{ s.source }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Selected work</p>
+      <h2 id="work-title">Strategy, ventures and analysis</h2>
+      <p class="section-lede">A few projects that show how I work: from fund theses and go-to-market plans to regulatory and financial analysis.</p>
+    </div>
+    <div class="card-grid">
+      {% for p in featured %}{{ project_card(p) }}{% endfor %}
+    </div>
+    <div class="section-foot">
+      <a class="btn btn-ghost" href="/work/">See all {{ projects | length }} projects {{ icon('arrow') }}</a>
+      <a class="text-link" href="/creative/">Or browse my creative work {{ icon('arrow') }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="experience" aria-labelledby="exp-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Experience</p>
+      <h2 id="exp-title">From the lab bench to business development</h2>
+    </div>
+    <div class="timeline">
+      {% for g in experience %}
+      {% if g.collapsed is defined and g.collapsed %}
+      <details class="timeline-group timeline-more">
+        <summary><span>Show earlier roles</span>{{ icon('chevron') }}</summary>
+      {% else %}
+      <div class="timeline-group">
+      {% endif %}
+        <h3 class="timeline-label">{{ g.group }}</h3>
+        <ol class="roles">
+          {% for r in g.roles %}
+          <li class="role reveal" id="{{ r.id }}">
+            <div class="role-meta">
+              <span class="role-dates">{{ r.dates }}</span>
+              {% if r.location is defined %}<span class="role-location">{{ r.location }}</span>{% endif %}
+            </div>
+            <div class="role-body">
+              <h4 class="role-title">{{ r.role }}</h4>
+              <p class="role-org">{{ r.org }}</p>
+              {% if r.summary is defined %}<p class="role-summary">{{ r.summary }}</p>{% endif %}
+              {% if r.bullets is defined %}
+              <ul class="role-bullets">
+                {% for b in r.bullets %}<li>{{ b }}</li>{% endfor %}
+              </ul>
+              {% endif %}
+              <div class="role-foot">
+                {% if r.tags is defined %}
+                <ul class="chips chips-sm" aria-label="Focus">{% for t in r.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+                {% endif %}
+                {% if r.project is defined %}<a class="text-link small" href="/work/{{ r.project }}/">Related project {{ icon('arrow') }}</a>{% endif %}
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      {% if g.collapsed is defined and g.collapsed %}
+      </details>
+      {% else %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container about-grid">
+    <div class="section-head sticky-head">
+      <p class="eyebrow">About</p>
+      <h2 id="about-title">Science-trained, commercially minded</h2>
+      <dl class="about-facets">
+        <div><dt>Focus</dt><dd>{{ site.focus | join(' · ') }}</dd></div>
+        <div><dt>Domains</dt><dd>{{ site.domains | join(' · ') }}</dd></div>
+      </dl>
+    </div>
+    <div class="about-body prose">
+      {% for para in site.about %}<p class="reveal">{{ para }}</p>{% endfor %}
+    </div>
+  </div>
+
+  <div class="container">
+    <h3 class="subhead" id="education">Education</h3>
+    <ol class="edu-list">
+      {% for e in site.education %}
+      <li class="edu reveal">
+        <span class="edu-years">{{ e.years }}</span>
+        <div>
+          <p class="edu-degree">{{ e.degree }}</p>
+          <p class="edu-school">{{ e.school }}</p>
+          {% if e.detail is defined %}<p class="edu-detail">{{ e.detail }}</p>{% endif %}
+        </div>
+        {% if e.grade is defined %}<span class="edu-grade" {% if e.grade_note is defined %}title="{{ e.grade_note }}"{% endif %}>{{ e.grade }}{% if e.grade_note is defined %}<small>{{ e.grade_note }}</small>{% endif %}</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+
+    <div class="skills-grid">
+      {% for g in site.skills %}
+      <div class="skill-block reveal">
+        <h3 class="subhead-sm">{{ g.group }}</h3>
+        <ul class="chips">{% for s in g['items'] %}<li>{{ s }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+      <div class="skill-block reveal">
+        <h3 class="subhead-sm">Languages</h3>
+        <ul class="lang-list">
+          {% for l in site.languages %}<li><span>{{ l.name }}</span><span class="muted">{{ l.level }}</span></li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="subhead" id="certifications">Certifications & programmes</h3>
+    <ul class="cert-list">
+      {% for c in site.certifications %}
+      <li class="cert reveal">
+        <div>
+          <p class="cert-name">{{ c.name }}</p>
+          <p class="cert-issuer">{{ c.issuer }}{% if c.year is defined %} · {{ c.year }}{% endif %}</p>
+        </div>
+        {% if c.file is defined %}<a class="cert-file" href="{{ c.file }}" target="_blank" rel="noopener" aria-label="View certificate: {{ c.name }} (PDF)">{{ icon('file') }}<span>PDF</span></a>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="note">{{ site.on_request }} <a href="mailto:{{ site.contact.email }}?subject=Recommendation%20letters">Ask me by email</a>.</p>
+
+    <h3 class="subhead" id="beyond">Beyond work</h3>
+    <ul class="beyond-grid">
+      {% for b in site.beyond %}
+      <li class="beyond reveal">
+        <span class="beyond-icon">{{ icon(b.icon) }}</span>
+        <p class="beyond-title">{{ b.title }}</p>
+        <p class="beyond-text">{{ b.text }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="container contact-inner">
+    <p class="eyebrow">Contact</p>
+    <h2 id="contact-title" class="contact-title">Let's connect.</h2>
+    <p class="contact-lede">Building a life-science venture, looking for a partner, or want to get involved with the Nucleate community? I'm always happy to talk biotech, medtech and go-to-market.</p>
+    <div class="contact-actions">
+      <a class="btn btn-primary btn-lg" href="mailto:{{ site.contact.email }}">{{ icon('mail') }} {{ site.contact.email }}</a>
+      <a class="btn btn-ghost btn-lg" href="{{ site.contact.linkedin }}" target="_blank" rel="noopener">{{ icon('linkedin') }} Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

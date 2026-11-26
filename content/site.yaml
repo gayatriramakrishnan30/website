@@ -1,0 +1,157 @@
+# ---------------------------------------------------------------------------
+# Site-wide content. Edit text here and the site rebuilds on the next push.
+# Lines starting with # are notes and never appear on the site.
+# ---------------------------------------------------------------------------
+
+url: https://gayatriramakrishnan30.github.io   # change if you add a custom domain
+name: Gayatri Ramakrishnan
+short_name: Gayatri
+location: Berlin, Germany
+
+# Shown in Google results and in LinkedIn link previews
+description: >-
+  Business development and strategy in life sciences. Biotechnologist and
+  Life Science Management MBA in Berlin, working where scientific innovation
+  meets commercial adoption.
+
+headline: Turning complex science into clear market moves.
+intro: >-
+  I work on business development and strategy in life sciences. I started out
+  in biotechnology and neurobiology research and now take that training into
+  go-to-market, partnership and venture decisions.
+
+current_roles:
+  - role: Junior Business Development Manager
+    org: Pensatech Pharma
+  - role: Head of Platform & Community
+    org: Nucleate Germany
+
+contact:
+  email: gayur2001@gmail.com
+  linkedin: https://www.linkedin.com/in/gayatri-ramakrishnan-041b7818b/
+  github: https://github.com/gayatriramakrishnan30
+
+# Optional: put a public CV (without your phone number) at static/docs/cv.pdf
+# and set this to /static/docs/cv.pdf to show a "Download CV" button.
+cv: null
+
+# The numbers strip under the intro. Every figure comes from your CV or LinkedIn.
+stats:
+  - value: "50+"
+    label: life-science startups analysed for funding and growth
+    source: DKFZ × BioRN
+  - value: "$5M"
+    label: mock pre-seed medtech fund, from thesis to investment memos
+    source: Venture Institute
+  - value: "200+"
+    label: behavioural experiments run and analysed
+    source: IISER Pune
+  - value: "5,000+"
+    label: readers reached with science writing
+    source: SciXplore
+  - value: "+35%"
+    label: social engagement in four months
+    source: Enactus Berlin
+
+about:
+  - >-
+    My path started in biotechnology and moved into neurobiology research at
+    IISER Pune, where I ran more than 200 behavioural experiments on zebra
+    finch song and learned to turn messy data into clear conclusions.
+  - >-
+    In Berlin I added a Life Science Management MBA at HTW Berlin. Since then
+    I've worked on go-to-market strategy for a medical device at Charité,
+    mapped funding across 50+ life-science startups for BioRN, and built a mock
+    pre-seed medtech fund as a Venture Institute fellow.
+  - >-
+    Today I drive customer acquisition and strategic business development at
+    Pensatech Pharma, working closely with its executives and advisory board.
+    I also lead the new Platform & Community team at Nucleate Germany,
+    connecting founder-scientists with investors, mentors and the wider
+    European life-science ecosystem.
+  - >-
+    Outside of work you'll find me on a basketball court or at the piano.
+
+focus: [Go-to-market strategy, Business development, Partnerships, Venture & ecosystem, Scientific storytelling]
+domains: [Biotech, Pharma, Medtech, Diagnostics, Digital health]
+
+education:
+  - degree: MBA & Engineering, Life Science Management
+    school: HTW Berlin
+    years: Since Oct 2024
+    grade: "Grade 1.6"
+    grade_note: German scale, 1.0 is best
+    detail: Strategic marketing in life sciences, corporate finance, analytics, project management, AI in the pharmaceutical industry. Master's thesis on go-to-market strategy at Charité.
+  - degree: M.Sc. Biotechnology
+    school: St. Xavier's College, University of Mumbai
+    years: 2022 – 2024
+    grade: "CGPA 9.3/10, Distinction"
+    detail: Entrepreneurship in biotechnology and pitch deck creation. Research thesis in neurobiology and behaviour at IISER Pune.
+  - degree: Foundation in Programming & Data Science
+    school: IIT Madras
+    years: 2021 – 2023
+    detail: Python, data structures, statistics and problem-solving methods.
+  - degree: B.Sc. Life Science & Biochemistry
+    school: St. Xavier's College, University of Mumbai
+    years: 2019 – 2022
+    grade: "CGPA 9.7/10, Distinction"
+
+skills:
+  - group: Strategy & business development
+    items: [Go-to-market strategy, Market research & validation, Competitive analysis, Business modelling, Investor & ecosystem mapping, Pitch development, Partnership building, Stakeholder interviews]
+  - group: Regulatory & documentation
+    items: [EU MDR basics, GDP / GMP / GVP familiarity, Device risk classification, FDA vs EMA pathways, Scientific & regulatory-style writing, Protocol drafting]
+  - group: Analytics & tools
+    items: [Python, R, Advanced Excel, Power BI, HubSpot CRM, Decile Hub, Canva, Figma, PowerPoint]
+
+languages:
+  - name: English
+    level: Fluent (IELTS 8/9)
+  - name: German
+    level: B2, actively improving
+  - name: Hindi
+    level: Professional
+  - name: Tamil
+    level: Native
+  - name: Marathi
+    level: Limited working
+
+certifications:
+  - name: Venture Fellow, Cohort 7
+    issuer: Venture Institute (VC Lab)
+    year: "2026"
+  - name: Treasure Hunting Summer School (patent commercialisation)
+    issuer: TU Berlin, Chair of Entrepreneurship & Innovation Management
+    year: "2025"
+    file: /static/docs/certificate-tu-berlin-summer-school.pdf
+  - name: Bloomberg Market Concepts
+    issuer: Bloomberg
+  - name: greenCHEM Hackathon
+    issuer: greenCHEM × NEEW Ventures
+    year: "2025"
+  - name: BRYCK Startup Alliance Hackathon
+    issuer: BRYCK
+  - name: Certificate of Appreciation, Content Team
+    issuer: SciXplore / UG STEMPeers
+    year: "2022"
+    file: /static/docs/certificate-scixplore.pdf
+  - name: Computational Genomics · Bioinformatics with R & MySQL
+    issuer: Online coursework
+  - name: Strategic Content Marketing
+    issuer: Online coursework
+
+on_request: Letters of recommendation (three academic, one employer) and the Enactus membership certificate are available on request.
+
+beyond:
+  - title: Basketball
+    text: National-level player and team captain in India. It taught me to lead under pressure and to keep performing when it counts.
+    icon: ball
+  - title: Music
+    text: Trained classical musician and pianist. Hours of practice are where my attention to detail comes from.
+    icon: music
+  - title: Teaching science
+    text: Volunteer science teacher for students from economically disadvantaged backgrounds, making complex topics feel approachable.
+    icon: spark
+  - title: Community
+    text: ISPE Student Chapter member (Future Leaders Days 2024) and organiser with btS e.V. and Enactus Berlin.
+    icon: people

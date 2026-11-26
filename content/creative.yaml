@@ -1,0 +1,217 @@
+# ---------------------------------------------------------------------------
+# Creative work gallery.
+# Each item is one tile. Types:
+#   image     -> `src`
+#   carousel  -> `slides` (list of images; first one is the tile, all open in the viewer)
+#   video     -> `src` (.mp4), optional `ratio` like "1/1" or "16/9"
+#   document  -> `src` (cover image) + `file` (PDF opened in a new tab)
+#   link      -> `src` (optional cover) + `url`
+# All images live in static/media/creative/.
+# ---------------------------------------------------------------------------
+
+intro: >-
+  Visual and written work from marketing roles, student initiatives,
+  applications and coursework. I mostly design in Canva and Figma, illustrate
+  in Krita, and edit video in CapCut.
+
+groups:
+  - id: testblu
+    title: testblu diagnostics
+    role: Marketing & BD student assistant · LinkedIn, Instagram, print
+    text: >-
+      Content and print materials for a Berlin diagnostics startup developing
+      early cancer detection for dogs and cats. I kept the brand consistent
+      across social posts, event announcements, a crowdfunding campaign and
+      B2B material for veterinarians.
+    items:
+      - type: carousel
+        title: Awareness series
+        caption: Everyday dog moments that link back to early detection.
+        slides:
+          - { src: testblu-dog-2.webp, alt: "Silhouette of a dog jumping up to a person at sunset: Knowing early means caring longer" }
+          - { src: testblu-dog-1.webp, alt: "Dog sitting at the beach at sunset: You can only treat early what you know early" }
+          - { src: testblu-dog-3.webp, alt: "Dog waiting by a window: He waits for you, every day. His health doesn't" }
+      - type: carousel
+        title: Crowdfunding campaign
+        caption: A five-slide carousel explaining the test and raising €19K for a validation study.
+        slides:
+          - { src: testblu-service-4.webp, alt: "Vet examining a dog: We're raising €19K to fund a cohort for our validation study" }
+          - { src: testblu-service-1.webp, alt: "Black-and-white photo of an old dog: Cancer kills 50% of all dogs over the age of 10" }
+          - { src: testblu-service-2.webp, alt: "Gloved hand examining a dog's fur: Why? Cancer grows inside and we cannot see it until symptoms appear" }
+          - { src: testblu-service-3.webp, alt: "Lab pipette: Canisense detects cancer early, before symptoms appear" }
+          - { src: testblu-service-5.webp, alt: "Happy Labrador: Early detection saves lives. Help fund our study, link in caption" }
+      - type: carousel
+        title: Event announcements
+        caption: Posts for DMEA, GITEX Europe, Rooftop Pitch Potsdam / bio:cap and a monthly recap.
+        slides:
+          - { src: testblu-event-dmea.webp, alt: "We'll be at DMEA 2026, with the founders' portraits over Messe Berlin" }
+          - { src: testblu-event-gitex.webp, alt: "testblu at GITEX Europe Berlin 2026, 30 June to 1 July" }
+          - { src: testblu-event-june.webp, alt: "June events: Rooftop Pitch Potsdam 2026 and bio:cap Europe's biotech investival" }
+          - { src: testblu-event-april.webp, alt: "April in review, with a dog raising its paw" }
+      - type: carousel
+        title: B2B flyer for veterinarians
+        caption: A two-sided service flyer that explains the test workflow to vets, in German.
+        slides:
+          - { src: testblu-flyer-1.webp, alt: "Flyer front: About us and how the cancer screening works" }
+          - { src: testblu-flyer-2.webp, alt: "Flyer back: test types, workflow and benefits" }
+      - type: image
+        title: Poster for pet owners
+        caption: "Früher erkennen. Länger leben. Service awareness at clinics."
+        src: testblu-poster.webp
+        alt: "Poster with a dog: Früher erkennen. Länger leben. Krebsvorsorge-Test für Hunde und Katze"
+      - type: image
+        title: Hiring post
+        caption: Recruiting a commercial co-founder for animal-health diagnostics.
+        src: misc-commercial-cofounder.webp
+        alt: "testblu: We are hiring a commercial co-founder, animal health diagnostics"
+      - type: image
+        title: Partner quote card
+        caption: Quote post featuring the CEO of felmo, a mobile vet service.
+        src: misc-felmo-quote.webp
+        alt: Quote card from Philip Trockels, co-founder and CEO of felmo, in German
+
+  - id: enactus
+    title: Enactus Berlin
+    role: Marketing team · Instagram, LinkedIn
+    link: { label: "@enactus_berlin", url: "https://www.instagram.com/enactus_berlin/" }
+    text: >-
+      Two to three posts a week for recruitment, events and project
+      storytelling. I tracked posts in the KPI dashboard I built, and
+      engagement grew 35% in four months.
+    items:
+      - type: carousel
+        title: "Why join Enactus Berlin"
+        caption: A recruitment carousel built from photos of past events.
+        slides:
+          - { src: enactus-join-1.webp, alt: "Why join Enactus Berlin, with event photos" }
+          - { src: enactus-join-2.webp, alt: "Grow as a leader: collage of members presenting" }
+          - { src: enactus-join-3.webp, alt: "Innovate with purpose: members working together" }
+          - { src: enactus-join-4.webp, alt: "Create real social and environmental impact" }
+          - { src: enactus-join-5.webp, alt: "Apply your skills to real challenges" }
+          - { src: enactus-join-6.webp, alt: "Meet like-minded changemakers: group photos" }
+          - { src: enactus-join-7.webp, alt: "Join us at Enactus Berlin. Innovate. Pitch. Impact. Apply now" }
+      - type: carousel
+        title: Pitch Event 2025 recap
+        caption: Post-event story of five project teams pitching for social and sustainable impact.
+        slides:
+          - { src: enactus-pitch-1.webp, alt: "Enactus Berlin Pitch Event, 24.07.2025" }
+          - { src: enactus-pitch-2.webp, alt: "2 ongoing projects, 3 new concepts: teams on stage" }
+          - { src: enactus-pitch-3.webp, alt: "Everyone who made it happen: group photos" }
+          - { src: enactus-pitch-4.webp, alt: "Discussion, questions, next steps: audience photos" }
+          - { src: enactus-pitch-5.webp, alt: "Thank you for joining Pitch Event 2025" }
+      - type: carousel
+        title: Meet the teams
+        caption: An illustrated introduction to each department for new members.
+        slides:
+          - { src: enactus-teams-1.webp, alt: "Not sure which team to join at Enactus Berlin? Let us introduce them" }
+          - { src: enactus-teams-2.webp, alt: "Partnerships: building bridges for our impact" }
+          - { src: enactus-teams-3.webp, alt: "InnoLab: where new ideas begin" }
+          - { src: enactus-teams-4.webp, alt: "Finance: backing ideas with numbers" }
+          - { src: enactus-teams-5.webp, alt: "Human Resources: the heart of the team" }
+          - { src: enactus-teams-6.webp, alt: "Events: bringing everyone together" }
+          - { src: enactus-teams-7.webp, alt: "Marketing & Web Design: shaping how we look and sound" }
+          - { src: enactus-teams-8.webp, alt: "Whatever your skill, there's a team for you. Applications open" }
+      - type: carousel
+        title: Enactus World Cup 2025
+        caption: Event coverage that doubled as recruitment motivation.
+        slides:
+          - { src: enactus-worldcup-1.webp, alt: "Enactus World Cup 2025, Team Germany" }
+          - { src: enactus-worldcup-2.webp, alt: "This year: Enactus Münster! Team photos" }
+          - { src: enactus-worldcup-3.webp, alt: "Next year: maybe you?" }
+          - { src: enactus-worldcup-4.webp, alt: "Join Enactus Berlin, with a group photo" }
+      - type: video
+        title: "What does sustainability mean?"
+        caption: A reel of members describing sustainability in one word.
+        src: enactus-sustainability-reel.mp4
+        ratio: "9/16"
+      - type: image
+        title: Sustainability fun fact
+        caption: "Educational post: clean-energy investment hits $2.2 trillion in 2025."
+        src: enactus-fun-fact.webp
+        alt: "Teddy bear mascot with a speech bubble: Fun fact, in 2025 clean energy investment will hit $2.2 trillion"
+      - type: image
+        title: New semester
+        caption: A seasonal post for the start of semester.
+        src: enactus-new-semester.webp
+        alt: Happy New Semester graphic with the Enactus Berlin logo
+
+  - id: scicomm
+    title: Science communication
+    role: Applications & research outreach
+    text: >-
+      Turning technical concepts into clear visuals. Some of these were
+      unsolicited samples made for job applications. I note where that's the
+      case.
+    items:
+      - type: image
+        title: Cell cultivation systems infographic
+        caption: Compares culture flasks, roller bottles and multilayer flasks. A sample for an application to Green Elephant Biotech.
+        src: scicomm-cell-cultivation.webp
+        alt: Infographic comparing culture flask, roller bottle, multi-layer flask and CellScrew systems
+      - type: image
+        title: International Day of Women in Science
+        caption: A LinkedIn graphic made as an application sample for FyoniBio.
+        src: scicomm-women-in-science.webp
+        alt: Illustrated poster of women scientists and an astronaut, International Day of Women and Girls in Science
+      - type: carousel
+        title: Zebra finch illustrations
+        caption: Hand-drawn in Krita to explain my thesis set-up on directed song to non-specialists.
+        slides:
+          - { src: scicomm-zebrafinch-song.webp, alt: Illustration of a male zebra finch singing to a female }
+          - { src: scicomm-zebrafinch-male.webp, alt: Illustration of a male zebra finch }
+          - { src: scicomm-zebrafinch-female.webp, alt: Illustration of a female zebra finch }
+      - type: image
+        title: SortSmart pitch visual
+        caption: Concept graphic for the Enactus SortSmart pitch.
+        src: scicomm-smartsort.webp
+        alt: Icon of a question-mark bin sorting into bottle, paper and food-waste bins
+
+  - id: academic
+    title: Academic & hackathon work
+    role: Coursework and hackathons
+    text: Explainer videos, posters and concept maps from university and hackathons.
+    items:
+      - type: video
+        title: Direct carbonation, in four steps
+        caption: A Python-generated explainer for the Flycarb greenCHEM hackathon pitch.
+        src: academic-direct-carbonation.mp4
+        ratio: "16/9"
+      - type: video
+        title: The gut health story
+        caption: Product storytelling video for the GutGlow synbiotics presentation (Canva, CapCut).
+        src: academic-gut-health.mp4
+        ratio: "16/9"
+      - type: image
+        title: Stem cell-based therapy infographic
+        caption: Group poster on stem cell therapy for neurodegenerative diseases and diabetes.
+        src: academic-stem-cell-therapy.webp
+        alt: Academic infographic on stem cell-based therapy for neurodegenerative diseases and diabetes
+      - type: image
+        title: lac operon poster
+        caption: An educational poster on gene regulation in E. coli.
+        src: academic-lac-operon.webp
+        alt: Academic poster explaining the lac operon
+      - type: document
+        title: Alternative lengthening of telomeres
+        caption: A concept map built in Coggle.
+        src: academic-alt-mindmap.webp
+        file: /static/docs/academic-alt-mindmap.pdf
+        alt: Mind map of the alternative lengthening of telomeres mechanism, markers and therapies
+
+  - id: writing
+    title: Writing
+    role: Blogs and articles
+    text: >-
+      I write about science and the biotech industry for non-specialist
+      readers, from lab techniques to market trends.
+    items:
+      - type: document
+        title: "Choosing the right cell cultivation system"
+        caption: A blog article comparing culture flasks, roller bottles and multilayer flasks.
+        src: writing-cell-cultivation.webp
+        file: /static/docs/writing-cell-cultivation.pdf
+        alt: First page of a blog article on choosing a cell cultivation system
+      - type: link
+        title: "SciXplore: Dr. Jayant Bhalchandra Udgaonkar"
+        caption: An article for SciXplore, the student science blog (2021).
+        url: https://scixplore.wordpress.com/2021/09/26/dr-jayant-bhalchandra-udgaonkar/

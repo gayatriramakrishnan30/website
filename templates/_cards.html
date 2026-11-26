@@ -1,0 +1,45 @@
+{% from "_icons.html" import icon %}
+
+{# Generated cover art: one motif per primary function, drawn in the accent colour. #}
+{% macro motif(kind) -%}
+<svg class="motif" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+{%- if kind == 'strategy' -%}
+  {%- for r in [26, 52, 78, 104, 130, 156] -%}<circle cx="205" cy="150" r="{{ r }}" />{%- endfor -%}
+  <path d="M205 150 L95 45" class="em"/><circle cx="95" cy="45" r="5" class="dot"/><circle cx="205" cy="150" r="3" class="dot"/>
+{%- elif kind == 'bd' -%}
+  {%- set pts = [(60,50),(130,30),(200,70),(270,40),(100,120),(180,140),(250,120),(40,150)] -%}
+  {%- for a, b in [(0,1),(1,2),(2,3),(0,4),(4,5),(5,6),(2,6),(1,4),(4,7),(2,5)] -%}<line x1="{{ pts[a][0] }}" y1="{{ pts[a][1] }}" x2="{{ pts[b][0] }}" y2="{{ pts[b][1] }}"/>{%- endfor -%}
+  {%- for x, y in pts -%}<circle cx="{{ x }}" cy="{{ y }}" r="{{ 6 if loop.index0 == 2 else 4 }}" class="{{ 'dot' if loop.index0 == 2 else 'node' }}"/>{%- endfor -%}
+{%- elif kind == 'analytics' -%}
+  {%- for h in [40, 64, 52, 88, 76, 110, 98, 128] -%}<rect x="{{ 20 + loop.index0 * 29 }}" y="{{ 160 - h }}" width="17" height="{{ h }}" rx="2" class="{{ 'bar-em' if loop.last else 'bar' }}"/>{%- endfor -%}
+  <path d="M28 115 L57 92 L86 104 L115 68 L144 80 L173 46 L202 58 L231 26" class="em"/>
+{%- elif kind == 'regulatory' -%}
+  {%- for i in range(6) -%}<line x1="70" y1="{{ 36 + i * 22 }}" x2="{{ 250 - (i % 3) * 30 }}" y2="{{ 36 + i * 22 }}"/>{%- endfor -%}
+  {%- for i in range(6) -%}<path d="M44 {{ 36 + i * 22 }} l5 5 l9 -10" class="{{ 'em' if i < 4 else '' }}"/>{%- endfor -%}
+{%- else -%}
+  {%- for i in range(7) -%}<path d="M0 {{ 40 + i * 18 }} C 60 {{ 20 + i * 18 }}, 120 {{ 60 + i * 18 }}, 180 {{ 40 + i * 18 }} S 300 {{ 20 + i * 18 }}, 330 {{ 40 + i * 18 }}" class="{{ 'em' if i == 3 else '' }}"/>{%- endfor -%}
+{%- endif -%}
+</svg>
+{%- endmacro %}
+
+{% macro project_card(p, heading='h3') -%}
+{% set primary = p.functions[0] if p.functions else 'marketing' %}
+<article class="card project-card reveal" data-functions="{{ p.functions | join(' ') }}">
+  <a class="card-link" href="{{ p.url }}">
+    <div class="cover cover-{{ primary }}">
+      {{ motif(primary) }}
+      <span class="cover-sector">{{ p.sector }}</span>
+      <span class="cover-index" aria-hidden="true">No.&nbsp;{{ '%02d' % p.index }}</span>
+    </div>
+    <div class="card-body">
+      <p class="card-context">{{ p.context }}{% if p.year is defined %} · {{ p.year }}{% endif %}</p>
+      <{{ heading }} class="card-title">{{ p.title }}</{{ heading }}>
+      <p class="card-summary">{{ p.summary }}</p>
+      <ul class="chips chips-sm" aria-label="Skills">
+        {% for t in p.tags[:3] %}<li>{{ t }}</li>{% endfor %}
+      </ul>
+      <span class="card-more">{{ 'Read case study' if p.has_page else 'See details' }} {{ icon('arrow') }}</span>
+    </div>
+  </a>
+</article>
+{%- endmacro %}

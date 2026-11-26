@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon %}
+{% from "_cards.html" import project_card %}
+{% set title = "Work" %}
+{% set description = "Projects by " ~ site.name ~ ": go-to-market strategy, business development, venture, regulatory and financial analysis in biotech, pharma and medtech." %}
+{% block body_class %}page-work{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Work</p>
+    <h1 class="page-title">Projects & case studies</h1>
+    <p class="page-lede">Course projects, consulting work, hackathons and self-initiated case studies across biotech, pharma, medtech and digital health. Filter by the kind of work.</p>
+
+    <div class="filters" role="toolbar" aria-label="Filter projects" data-filters>
+      <button type="button" class="filter" aria-pressed="true" data-filter="all">All <span class="count">{{ projects | length }}</span></button>
+      {% for key, label in functions.items() %}
+      {% set n = projects | selectattr('functions', 'contains', key) | list | length %}
+      {% if n %}<button type="button" class="filter" aria-pressed="false" data-filter="{{ key }}">{{ label }} <span class="count">{{ n }}</span></button>{% endif %}
+      {% endfor %}
+    </div>
+    <p class="visually-hidden" aria-live="polite" data-filter-status></p>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="card-grid" data-filter-grid>
+      {% for p in projects %}{{ project_card(p, heading='h2') }}{% endfor %}
+    </div>
+    <div class="section-foot">
+      <a class="text-link" href="/creative/">Looking for design and writing samples? See creative work {{ icon('arrow') }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

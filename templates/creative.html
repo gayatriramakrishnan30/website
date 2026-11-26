@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon %}
+{% set title = "Creative work" %}
+{% set description = "Design, video and writing samples by " ~ site.name ~ ": social media campaigns, print materials, scientific illustration and science communication." %}
+{% set media = "/static/media/creative/" %}
+{% block body_class %}page-creative{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Creative work</p>
+    <h1 class="page-title">Design, video & writing</h1>
+    <p class="page-lede">{{ creative.intro }}</p>
+    <nav class="jump" aria-label="Jump to section">
+      {% for g in creative.groups %}<a href="#{{ g.id }}">{{ g.title }}</a>{% endfor %}
+    </nav>
+  </div>
+</section>
+
+{% for g in creative.groups %}
+<section class="section section-tight gallery-section" id="{{ g.id }}" aria-labelledby="{{ g.id }}-title">
+  <div class="container">
+    <div class="gallery-head">
+      <div>
+        <h2 id="{{ g.id }}-title" class="gallery-title">{{ g.title }}</h2>
+        <p class="gallery-role">{{ g.role }}</p>
+      </div>
+      <div>
+        <p class="gallery-text">{{ g.text }}</p>
+        {% if g.link is defined %}<a class="text-link small" href="{{ g.link.url }}" target="_blank" rel="noopener">{{ g.link.label }} {{ icon('external') }}</a>{% endif %}
+      </div>
+    </div>
+
+    <ul class="masonry">
+      {% for it in g['items'] %}
+      <li class="tile reveal is-{{ it.type }}">
+        {% if it.type == 'image' or it.type == 'carousel' %}
+          {% set slides = it.slides if it.type == 'carousel' else [{'src': it.src, 'alt': it.alt}] %}
+          <button type="button" class="tile-media" data-lightbox
+                  data-title="{{ it.title }}"
+                  data-base="{{ media }}"
+                  data-slides='{{ slides | map(attribute="src") | list | tojson }}'
+                  data-alts='{{ slides | map(attribute="alt") | list | tojson }}'
+                  aria-label="Open {{ it.title }}{% if slides | length > 1 %} ({{ slides | length }} images){% endif %}">
+            {{ img(media ~ slides[0].src, slides[0].alt) }}
+            {% if slides | length > 1 %}<span class="tile-badge">{{ icon('stack') }} {{ slides | length }}</span>{% endif %}
+          </button>
+        {% elif it.type == 'video' %}
+          <div class="tile-media tile-video">
+            <video controls preload="metadata" playsinline src="{{ media ~ it.src }}#t=0.5" aria-label="{{ it.title }}"></video>
+          </div>
+        {% elif it.type == 'document' %}
+          <a class="tile-media tile-doc" href="{{ it.file }}" target="_blank" rel="noopener" aria-label="Open {{ it.title }} (PDF, new tab)">
+            {{ img(media ~ it.src, it.alt) }}
+            <span class="tile-badge">{{ icon('file') }} PDF</span>
+          </a>
+        {% elif it.type == 'link' %}
+          <a class="tile-media tile-linkcard" href="{{ it.url }}" target="_blank" rel="noopener">
+            <span class="linkcard-kicker">Article</span>
+            <span class="linkcard-title">{{ it.title }}</span>
+            <span class="linkcard-url">{{ it.url.split('/')[2] }} {{ icon('external') }}</span>
+          </a>
+        {% endif %}
+        {% if it.type != 'link' %}
+        <div class="tile-caption">
+          <p class="tile-title">{{ it.title }}</p>
+          <p class="tile-text">{{ it.caption }}</p>
+        </div>
+        {% else %}
+        <div class="tile-caption"><p class="tile-text">{{ it.caption }}</p></div>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endfor %}
+{% endblock %}
+
+{% block after %}
+<dialog class="lightbox" data-lightbox-dialog aria-label="Image viewer">
+  <div class="lb-inner">
+    <div class="lb-top">
+      <p class="lb-title" data-lb-title></p>
+      <p class="lb-count" data-lb-count aria-live="polite"></p>
+      <button type="button" class="icon-btn lb-close" data-lb-close aria-label="Close viewer">{{ icon('close') }}</button>
+    </div>
+    <figure class="lb-stage">
+      <img data-lb-img alt="">
+      <figcaption class="visually-hidden" data-lb-alt></figcaption>
+    </figure>
+    <button type="button" class="icon-btn lb-nav lb-prev" data-lb-prev aria-label="Previous image">{{ icon('arrow-left') }}</button>
+    <button type="button" class="icon-btn lb-nav lb-next" data-lb-next aria-label="Next image">{{ icon('arrow') }}</button>
+  </div>
+</dialog>
+{% endblock %}

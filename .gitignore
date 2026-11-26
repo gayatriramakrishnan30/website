@@ -1,0 +1,7 @@
+# build output (GitHub builds it for you)
+_site/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon %}
+{% from "_cards.html" import project_card, motif %}
+{% set title = project.title %}
+{% set description = project.summary %}
+{% set og_type = "article" %}
+{% block body_class %}page-project{% endblock %}
+
+{% block content %}
+{% set primary = project.functions[0] if project.functions else 'marketing' %}
+<article class="case">
+  <header class="case-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/work/">{{ icon('arrow-left') }} All work</a>
+      </nav>
+      <p class="eyebrow">{{ project.context }}{% if project.year is defined %} · {{ project.year }}{% endif %}</p>
+      <h1 class="case-title">{{ project.title }}</h1>
+      <p class="case-lede">{{ project.summary }}</p>
+      <ul class="chips" aria-label="Skills">{% for t in project.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+    </div>
+  </header>
+
+  <div class="container case-layout">
+    <aside class="case-aside" aria-label="Project facts">
+      <dl class="facts">
+        <div><dt>Sector</dt><dd>{{ project.sector }}</dd></div>
+        <div><dt>Type of work</dt><dd>{% for f in project.functions %}{{ functions[f] }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>
+        {% if project.facts is defined %}{% for f in project.facts %}<div><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>{% endfor %}{% endif %}
+      </dl>
+      {% if project.links is defined %}
+      <div class="aside-links">
+        {% for l in project.links %}<a class="btn btn-primary btn-block" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} {{ icon('external') }}</a>{% endfor %}
+      </div>
+      {% endif %}
+      {% if project.artifacts is defined %}
+      <p class="aside-note">{{ icon('file') }} {{ project.artifacts }}. <a href="mailto:{{ site.contact.email }}?subject={{ ('Request: ' ~ project.title) | urlencode }}">Email me</a></p>
+      {% endif %}
+    </aside>
+
+    <div class="case-main">
+      {% if project.image is defined %}
+      <figure class="case-figure">
+        {{ img(project.image, project.image_alt, loading='eager') }}
+      </figure>
+      {% else %}
+      <div class="case-figure cover cover-{{ primary }} cover-lg" aria-hidden="true">
+        {{ motif(primary) }}
+        <span class="cover-sector">{{ project.sector }}</span>
+        <span class="cover-index">No.&nbsp;{{ '%02d' % project.index }}</span>
+      </div>
+      {% endif %}
+
+      {% if project.disclaimer is defined %}
+      <p class="disclaimer" role="note"><strong>Note:</strong> {{ project.disclaimer }}</p>
+      {% endif %}
+
+      <div class="prose case-body">
+        {{ project.body }}
+      </div>
+    </div>
+  </div>
+</article>
+
+{% if related %}
+<section class="section section-alt" aria-labelledby="related-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Keep reading</p>
+      <h2 id="related-title">Related projects</h2>
+    </div>
+    <div class="card-grid">
+      {% for p in related %}{{ project_card(p) }}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

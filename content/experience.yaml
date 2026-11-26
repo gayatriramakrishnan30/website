@@ -1,0 +1,145 @@
+# ---------------------------------------------------------------------------
+# Experience timeline, newest first, in groups.
+# `id` is used for links like /#exp-charite. Keep it short and unique.
+# `collapsed: true` hides a group behind a "Show earlier roles" toggle.
+# ---------------------------------------------------------------------------
+
+- group: Now
+  roles:
+    - id: exp-pensatech
+      role: Junior Business Development Manager
+      org: Pensatech Pharma GmbH
+      dates: Oct 2026 – Present
+      location: Berlin
+      summary: Business development across the whole customer journey, from first conversation to signed order, working directly with executives, senior academics and members of the advisory board.
+      bullets:
+        - Own new customer acquisition, combining targeted cold and warm outreach with conferences and industry events to open conversations with senior decision-makers in pharma and academia
+        - Turn early project discussions into concrete offers by scoping requirements with clients and preparing orders, and established the financial calculation system that underpins offer pricing
+        - Shape strategic growth alongside leadership and the advisory board, including expansion into new service lines and therapeutic areas, backed by my own competitor analyses
+        - "Drive the company's marketing refresh: redesigning the website, designing flyers and rebuilding client presentations"
+        - Building a working grounding in pharmaceutical formulation and drug-delivery science to engage credibly with clients' technical questions
+      tags: [Business development, Customer acquisition, Strategic growth, Pharma formulation]
+
+    - id: exp-nucleate
+      role: Head of Platform & Community
+      org: Nucleate Germany
+      dates: Sep 2026 – Present
+      location: Germany
+      summary: Volunteer leadership role at the German chapter of Nucleate, the global, equity-free biotech venture accelerator.
+      bullets:
+        - Building the new Platform & Community team from scratch, including its structure, roles and ways of working within the national leadership team
+        - Supporting Activator founders after the programme with access to Nucleate's network of investors, VCs, mentors and in-kind partners
+        - Planning community events and networking formats that connect founder-scientists with the German and European life-science ecosystem
+      tags: [Community building, Venture ecosystem, Partnerships]
+
+- group: Venture & strategy
+  roles:
+    - id: exp-venture-institute
+      role: Venture Fellow, Cohort 7
+      org: Venture Institute (VC Lab)
+      dates: Jul – Sep 2026
+      summary: Eight-week programme covering fund structure and economics, deal flow, LP fundraising, fund operations and AI in venture.
+      bullets:
+        - Built Medix Capital, a mock $5M fund investing in pre-seed medtech and diagnostics in Europe
+        - Wrote the fund thesis, portfolio model and investment memos on Decile Hub, with weekly peer and mentor feedback
+      tags: [Venture capital, Medtech, Fund thesis]
+      project: medix-capital
+
+    - id: exp-charite
+      role: Master's Thesis Student & Project Assistant
+      org: Charité – Universitätsmedizin Berlin, Biofluid Mechanics Lab
+      dates: Mar – Sep 2026
+      location: Berlin
+      summary: Business side of the Puringe medical device project during its pre-incorporation phase.
+      bullets:
+        - Developed the business model and go-to-market strategy, including market analysis, validation and financial modelling
+        - Interviewed ophthalmologists, pharmacists and hospital procurement contacts on the intravitreal injection procedure to gather real-world data for pricing and product validation
+        - Prepared investor-ready pitch decks and grant applications, aligning clinical researchers with commercial and investor stakeholders
+      tags: [GTM strategy, Business modelling, Market validation]
+
+    - id: exp-biorn
+      role: Project Consultant
+      org: DKFZ Life Science Consulting Club × BioRN
+      dates: Apr – Jul 2026
+      bullets:
+        - Evaluated the funding velocity and growth of 50+ life-science startups in a six-person team
+        - Mapped funding sources and investor groups across multi-year portfolios using structured consulting frameworks
+        - Quantified ecosystem growth through capital raised, venture survival rates and regional funding patterns, and delivered insights and an optimised database to BioRN leadership
+      tags: [Consulting, Investor mapping, Ecosystem analysis]
+
+    - id: exp-testblu
+      role: Marketing & Business Development (Student Assistant)
+      org: testblu diagnostics GmbH
+      dates: Nov 2025 – Jul 2026
+      location: Berlin
+      bullets:
+        - Wrote and published LinkedIn content that turned technical product information into posts for clinical and industry audiences
+        - Designed B2B materials, including flyers, posters and letters of intent, keeping the brand consistent across channels
+        - Supported investor outreach and tracked engagement in HubSpot CRM
+      tags: [Content marketing, Diagnostics, HubSpot]
+
+- group: Community & marketing
+  roles:
+    - id: exp-bts
+      role: Team Member, Berlin
+      org: btS – Life Sciences Studierendeninitiative e.V.
+      dates: Jan 2026 – Present
+      bullets:
+        - Helped organise ScieCon Berlin 2026, a career event bridging academia and industry
+        - Designed and implemented the company profile forms (Firmenprofilbogen) on the official website
+      tags: [Events, Academia–industry]
+
+    - id: exp-enactus
+      role: Innovation & Marketing Teams
+      org: Enactus Berlin e.V.
+      dates: May – Dec 2025
+      location: Berlin
+      bullets:
+        - Led development of SortSmart, a waste-sorting concept, with 20+ stakeholder interviews and structured market research
+        - Built KPI dashboards in Excel and Power BI tracking 10+ social and web metrics, growing engagement by 35% and followers by 50% in four months
+        - Created campaign content and pitch decks and presented to approval panels and 30+ members
+      tags: [Marketing analytics, Social impact, Pitching]
+      project: sortsmart
+
+- group: Research
+  roles:
+    - id: exp-iiser
+      role: Master's Thesis Student & Project Assistant, Neurobiology and Behaviour
+      org: IISER Pune (Dr. Raghav Rajan's lab)
+      dates: Nov 2023 – Sep 2024
+      location: Pune, India
+      summary: "Thesis: “Characterisation of reaction time and the factors affecting reaction time of male zebra finch song.”"
+      bullets:
+        - Designed and ran 200+ behavioural trials and managed multi-stream project timelines
+        - Analysed the datasets in Python, R and Excel and turned the results into visual insights
+        - Wrote and presented a 50-page thesis to scientific stakeholders, following ethical and animal-handling protocols throughout
+      tags: [Experimental design, Data analysis, Scientific writing]
+
+- group: Earlier
+  collapsed: true
+  roles:
+    - id: exp-scixplore
+      role: Content Team
+      org: SciXplore science blog (UG STEMPeers)
+      dates: May 2021 – May 2022
+      bullets:
+        - Wrote and edited 10+ peer-reviewed articles for student audiences, with SEO and performance tracking
+        - Helped grow readership to 5,000+ with around 30% monthly growth
+      tags: [Science communication, Editing]
+
+    - id: exp-xprize
+      role: Student Researcher
+      org: XPRIZE
+      dates: Jun – Oct 2021
+      bullets:
+        - Conceptualised an energy-efficient system using microalgae to sequester carbon dioxide from seawater
+      tags: [Climate tech]
+
+    - id: exp-lignum
+      role: Editorial Team, Content
+      org: Lignum Vitae magazine, St. Xavier's College
+      dates: Dec 2020 – Mar 2021
+      location: Mumbai
+      bullets:
+        - Edited and proofread 10+ submissions for a 100-page departmental publication, working on layout and visual planning to a strict deadline
+      tags: [Editorial QA]
